@@ -6,11 +6,12 @@ $(document).ready(function()
 
 ///// INIT vars
 // html starts with 12
-var totalSprites = 12,
+var totalSprites = 65,
 spriteImgPath = 'images/single-poppie-lg.png',
 spriteHolder = $('.sprites_holder'),
 winWidth = window.innerWidth,
-winHeight = window.innerHeight;
+winHeight = window.innerHeight,
+spriteTravel = 65;
 
 
 ///// INIT positions + alphas
@@ -27,6 +28,8 @@ createSprites = function() {
 }
 
 function rand(max){return Math.floor(Math.random()*max)};
+function coin(){ 
+  return Math.floor(Math.random() * 2)};
 
 Sprite = function(id) {
   var _sprite = '<img src="' + spriteImgPath + '" class="sprite" id="sprite' + id + '" />',
@@ -36,16 +39,37 @@ Sprite = function(id) {
   
   // need to grab a ref to the dom 
   domElement = $('#sprite' + id);
-  TweenLite.set(domElement, {x: rand(500), y: rand(500), width:randSize, height:randSize, rotation:rand(360)});
+  TweenLite.set(domElement, {x: rand(winWidth), y: rand(winHeight), width:randSize, height:randSize, rotation:rand(360)});
   animateElement(domElement);
+  console.log(coin());
 }
 
 animateElement = function(domElement) {
   // TweenLite.to(domElement, rand(5)+2, {bezier:{values:[{x:rand(500), y:rand(500)}, {x:rand(500), y:rand(500)}]}, scale:rand(2)+0.5, rotation:rand(360), ease:Power4.easeOut,onComplete:animateElement, onCompleteParams:[domElement]});
   // get current elements cords
-  var elementX = domElement.position.left;
-  console.log("domElement: ", domElement);
-  // TweenLite.to(domElement, rand(6), {x:rand()})
+  
+  var posX = domElement[0]._gsTransform.x,
+  posY = domElement[0]._gsTransform.y,
+  randX = Math.floor(Math.random() * spriteTravel),
+  randY = Math.floor(Math.random() * spriteTravel),
+  newX = 0,
+  newY = 0,
+  newScale = Math.random() * (.5 + 1) + .5;
+  console.log("newScale: ", newScale);
+
+  if(coin()) {
+    newX = posX + randX;
+  } else {
+    newX = posX - randX;
+  }
+
+  if(coin()) {
+    newY = posY + randY;
+  } else {
+    newY = posY - randY;
+  }
+
+  TweenLite.to(domElement, rand(6) + 3, {x:newX, y:newY, scale:newScale, ease:Power4.easeInOut, onComplete:animateElement, onCompleteParams:[domElement] })
 }
 
 
