@@ -71,6 +71,24 @@ body {
       right: 0px; }
     body .main_holder .nav .nav_arrow {
       width: 45px; }
+  body .main_holder form {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center; }
+    body .main_holder form fieldset {
+      display: block;
+      margin: 0 auto 15px;
+      text-align: center; }
+      body .main_holder form fieldset label, body .main_holder form fieldset input, body .main_holder form fieldset textarea {
+        display: block;
+        margin: 0 auto 5px; }
+    body .main_holder form .submit {
+      display: block;
+      margin: 0 auto 15px; }
   body .main_holder .background_holder {
     width: 100%;
     overflow: hidden; }
