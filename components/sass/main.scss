@@ -12,6 +12,11 @@ body {
     .sprites_holder {
       position: absolute;
       width: 100%;
+      top: 0px;
+
+      .sprite {
+        position: absolute;
+      }
     }
 
     /////// NAV

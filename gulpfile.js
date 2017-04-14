@@ -14,6 +14,7 @@ var coffeeSources = ['scripts/*.coffee'],
       'components/lib/greensock/TimelineMax.js',
       'components/lib/greensock/easing/EasePack.js',
       'components/lib/greensock/plugins/CSSPlugin.js',
+      'components/lib/greensock/plugins/BezierPlugin.js',
       'components/scripts/main.js'
     ];
 

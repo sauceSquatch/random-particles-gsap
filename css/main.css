@@ -52,7 +52,10 @@ body {
   font-size: 1.4em; }
   body .main_holder .sprites_holder {
     position: absolute;
-    width: 100%; }
+    width: 100%;
+    top: 0px; }
+    body .main_holder .sprites_holder .sprite {
+      position: absolute; }
   body .main_holder .nav {
     position: absolute;
     top: 300px;
