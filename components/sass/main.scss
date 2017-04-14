@@ -1,0 +1,52 @@
+@import "reset";
+@import "mixins";
+@import "vars";
+
+body {
+  background-color: $BG_gray;
+  font-family: $bodyFont;
+  font-size: 1.4em;
+
+  .main_holder {
+    /////// SPRITES HOLDER
+    .sprites_holder {
+      position: absolute;
+      width: 100%;
+    }
+
+    /////// NAV
+    .nav {
+      position: absolute;
+      top: 300px;
+      width: 100%;
+
+      .btn_arrow {
+        display: inline-block;
+        padding: 10px 20px;
+        width: 45px;
+        background: rgba(0, 0, 0, 0.3);
+
+        box-sizing: content-box;
+      }
+      #arrow_right {
+        position: absolute;
+        right: 0px;
+      }
+      .nav_arrow {
+        width: 45px;
+      }
+    }
+    
+
+    /////// BACKGROUND
+    .background_holder {
+      width: 100%;
+      overflow: hidden;
+      .background {
+        height: 100vh;
+        // position: absolute;
+        background: url(../images/Never-ending-poppy-fields.jpg);
+      }
+    }
+  }
+}

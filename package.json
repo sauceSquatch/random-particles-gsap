@@ -1,0 +1,19 @@
+{
+  "name": "basicProjectBoilderplate",
+  "version": "0.1.0",
+  "description": "boilerplate project for quick setup",
+  "author": "Jamie Naioti",
+  "dependencies": {
+    "gulp": "latest",
+    "gulp-util": "latest",
+    "gulp-sass": "latest",
+    "gulp-coffee": "latest",
+    "gulp-uglify": "latest",
+    "gulp-concat": "latest",
+    "gulp-connect": "latest"
+  },
+  "scripts": {
+    "start": "gulp heroku:production"
+  },
+  "repository": "none"
+}
