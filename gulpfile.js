@@ -15,6 +15,8 @@ var coffeeSources = ['scripts/*.coffee'],
       'components/lib/greensock/easing/EasePack.js',
       'components/lib/greensock/plugins/CSSPlugin.js',
       'components/lib/greensock/plugins/BezierPlugin.js',
+      'components/lib/greensock/plugins/ThrowPropsPlugin.js',
+      'components/lib/greensock/utils/Draggable.js',
       'components/scripts/main.js'
     ];
 

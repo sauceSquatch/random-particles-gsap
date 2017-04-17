@@ -9,13 +9,27 @@ body {
 
   .main_holder {
     /////// SPRITES HOLDER
-    .sprites_holder {
-      position: absolute;
-      width: 100%;
-      top: 0px;
+    // .sprites_holder {
+    //   position: absolute;
+    //   width: 100%;
+    //   top: 0px;
 
-      .sprite {
-        position: absolute;
+    //   .sprite {
+    //     position: absolute;
+    //   }
+    // }
+
+    /////// WALL
+    .wall_holder {
+      display: block;
+      width: 100%;
+      background-color: #dcd5d5;
+      height: 100vh;
+
+      .wall {
+        width: 250px;
+        height: 175px;
+        background-color: #363636;
       }
     }
 

@@ -7,18 +7,40 @@ $(document).ready(function()
 ///// INIT vars
 // html starts with 12
 var totalSprites = 65,
-spriteImgPath = 'images/single-poppie-lg.png',
-spriteHolder = $('.sprites_holder'),
 winWidth = window.innerWidth,
 winHeight = window.innerHeight,
-spriteTravel = 65;
+wallHolder = $(".wall_holder"),
+wall = $(".wall");
+
+// Draggable example
+var gridWidth = 250;
+var gridHeight = 175;
+Draggable.create(".wall", {
+    type:"x,y",
+    edgeResistance:0.65,
+    bounds:".wall_holder",
+    throwProps:true,
+    snap: {
+        x: function(endValue) {
+            return Math.round(endValue / gridWidth) * gridWidth;
+        },
+        y: function(endValue) {
+            return Math.round(endValue / gridHeight) * gridHeight;
+        }
+    }
+});
 
 
 ///// INIT positions + alphas
 init = function() {
   // TweenLite.set(feed, {alpha:0, x:-100})
-  createSprites();
+  // createSprites();
+  initWall();
   initBuild();
+}
+
+initWall = function() {
+
 }
 
 createSprites = function() {
