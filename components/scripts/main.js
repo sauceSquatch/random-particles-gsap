@@ -10,7 +10,9 @@ var totalSprites = 65,
 winWidth = window.innerWidth,
 winHeight = window.innerHeight,
 wallHolder = $(".wall_holder"),
-wall = $(".wall");
+wall = $(".wall"),
+wallViewer = $('.wall_view'),
+viewerScaled = false;
 
 // Draggable example
 var gridWidth = 100;
@@ -77,7 +79,6 @@ animateElement = function(domElement) {
   newX = 0,
   newY = 0,
   newScale = Math.random() * (.5 + 1) + .5;
-  console.log("newScale: ", newScale);
 
   if(coin()) {
     newX = posX + randX;
@@ -100,6 +101,16 @@ initBuild = function() {
   createListeners();
 };
 
+viewerClicked = function() {
+  if(viewerScaled) {
+    TweenLite.to(wallHolder, .5, {scale:1, ease:Power4.easeInOut});
+    viewerScaled = false;
+  } else {
+    TweenLite.to(wallHolder, .5, {scale:3, ease:Power4.easeInOut});
+    viewerScaled = true;
+  }
+}
+
 createListeners = function() {
-  
+  wallViewer.on('click', viewerClicked );
 }
