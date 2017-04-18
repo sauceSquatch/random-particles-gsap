@@ -8684,6 +8684,7 @@ totalWallSections = 4,
 wallSection1 = $('#wall_section1'),
 viewerScaled = false,
 spriteImgPath = "../../images/single-poppie-med.png",
+modalLayer = $('.modal_layer'),
 modal = $('.modal');
 
 // Draggable example
@@ -8709,7 +8710,9 @@ Draggable.create(".wall", {
 init = function() {
   // TweenLite.set(feed, {alpha:0, x:-100})
   // createSprites();
-  TweenLite.set(modal, {autoAlpha:0});
+  TweenLite.set(modal, {autoAlpha:0, scale:0.5});
+  TweenLite.set(modalLayer, {autoAlpha:0});
+
   initWall();
   initBuild();
 }
@@ -8795,11 +8798,24 @@ wallClicked = function(evt) {
 openModal = function(id) {
   var modalContent = '<div class="selected_num">' + id + '</div>';
   $("div.selected_num", modal).replaceWith(modalContent);
-  TweenLite.to(modal, 0.5, {autoAlpha:1});
+
+  TweenLite.to(modal, 0.4, {autoAlpha:1, scale:1, delay:0.25, ease:Power4.easeOut});
+  TweenLite.to(modalLayer, 0.5, {autoAlpha:1});
+
+  //add listeners
+  $(".close_btn", modal).click(closeModal);
+}
+
+closeModal = function() {
+  TweenLite.to(modal, 0.3, {autoAlpha:0, scale:0.5, ease:Power4.easeOut});
+  TweenLite.to(modalLayer, 0.5, {autoAlpha:0, delay:0.1});
+
+  //add listeners
+  $(".close_btn", modal).unbind("click");
 }
 
 createListeners = function() {
   wallViewer.on('click', viewerClicked );
   // wall.on('click', wallClicked );
-  wall.unbind('click').click(wallClicked);
+  wall.click(wallClicked);
 }
