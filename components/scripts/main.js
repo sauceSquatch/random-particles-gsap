@@ -6,7 +6,7 @@ $(document).ready(function()
 
 ///// INIT vars
 // html starts with 12
-var totalSprites = 465,
+var totalSprites = 377,
 winWidth = window.innerWidth,
 winHeight = window.innerHeight,
 wallHolder = $(".wall_holder"),
@@ -15,7 +15,8 @@ wallViewer = $('.wall_view'),
 totalWallSections = 4,
 wallSection1 = $('#wall_section1'),
 viewerScaled = false,
-spriteImgPath = "../../images/single-poppie-med.png";
+spriteImgPath = "../../images/single-poppie-med.png",
+modal = $('.modal');
 
 // Draggable example
 var gridWidth = 100;
@@ -40,6 +41,7 @@ Draggable.create(".wall", {
 init = function() {
   // TweenLite.set(feed, {alpha:0, x:-100})
   // createSprites();
+  TweenLite.set(modal, {autoAlpha:0});
   initWall();
   initBuild();
 }
@@ -113,6 +115,23 @@ viewerClicked = function() {
   }
 }
 
+wallClicked = function(evt) {
+  // console.log(evt)
+  if(evt.target.id.startsWith('flower')) {
+    // console.log(evt.target.id.substr(6));
+    openModal(evt.target.id.substr(6));
+    evt.stopImmediatePropagation();
+  }
+}
+
+openModal = function(id) {
+  var modalContent = '<div class="selected_num">' + id + '</div>';
+  $("div.selected_num", modal).replaceWith(modalContent);
+  TweenLite.to(modal, 0.5, {autoAlpha:1});
+}
+
 createListeners = function() {
   wallViewer.on('click', viewerClicked );
+  // wall.on('click', wallClicked );
+  wall.unbind('click').click(wallClicked);
 }

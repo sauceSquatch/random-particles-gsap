@@ -113,4 +113,18 @@ body {
       }
     }
   }
+  .modal {
+    z-index: 2222;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+
+    width: 300px;
+    height: 150px;
+    background-color: #fff;
+    text-align: center;
+    padding: 10px;
+    opacity: 0;
+
+  }
 }
