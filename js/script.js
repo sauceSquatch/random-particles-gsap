@@ -8674,13 +8674,16 @@ $(document).ready(function()
 
 ///// INIT vars
 // html starts with 12
-var totalSprites = 65,
+var totalSprites = 465,
 winWidth = window.innerWidth,
 winHeight = window.innerHeight,
 wallHolder = $(".wall_holder"),
 wall = $(".wall"),
 wallViewer = $('.wall_view'),
-viewerScaled = false;
+totalWallSections = 4,
+wallSection1 = $('#wall_section1'),
+viewerScaled = false,
+spriteImgPath = "../../images/single-poppie-med.png";
 
 // Draggable example
 var gridWidth = 100;
@@ -8710,12 +8713,12 @@ init = function() {
 }
 
 initWall = function() {
-
+  createSprites(wallSection1);
 }
 
-createSprites = function() {
+createSprites = function(_parent) {
   for(var i = 0; i < totalSprites; i++) {
-    var _sprite = new Sprite(i);
+    var _sprite = new Flower(i, _parent);
   }
 }
 
@@ -8723,17 +8726,16 @@ function rand(max){return Math.floor(Math.random()*max)};
 function coin(){ 
   return Math.floor(Math.random() * 2)};
 
-Sprite = function(id) {
-  var _sprite = '<img src="' + spriteImgPath + '" class="sprite" id="sprite' + id + '" />',
-      randSize = rand(300);
+Flower = function(_id, _parent) {
+  var _sprite = '<img src="' + spriteImgPath + '" class="flower" id="flower' + _id + '" />',
+      randSize = rand(55) + 10;
 
-  spriteHolder.append(_sprite);
+  _parent.append(_sprite);
   
   // need to grab a ref to the dom 
-  domElement = $('#sprite' + id);
-  TweenLite.set(domElement, {x: rand(winWidth), y: rand(winHeight), width:randSize, height:randSize, rotation:rand(360)});
-  animateElement(domElement);
-  console.log(coin());
+  domElement = $('#flower' + _id);
+  TweenLite.set(domElement, {x: rand(_parent.width()), y: rand(_parent.height()), width:randSize, height:randSize, rotation:rand(360)});
+  // animateElement(domElement);
 }
 
 animateElement = function(domElement) {

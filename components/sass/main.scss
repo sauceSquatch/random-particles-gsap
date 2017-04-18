@@ -40,9 +40,15 @@ body {
       .wall {
         position: absolute;
         left: 274px;
-        width: 1096px;
-        height: 552px;
-        background: url('../../images/wall_tile.jpg');
+
+        .wall_section {
+          width: 1096px;
+          height: 552px;
+          background: url('../../images/wall_tile.jpg');
+          .flower {
+            position: absolute;
+          }
+        }
       }
     }
 

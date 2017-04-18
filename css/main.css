@@ -68,10 +68,13 @@ body {
     border: 1px solid #333; }
     body .main_holder .wall_holder .wall {
       position: absolute;
-      left: 274px;
-      width: 1096px;
-      height: 552px;
-      background: url("../../images/wall_tile.jpg"); }
+      left: 274px; }
+      body .main_holder .wall_holder .wall .wall_section {
+        width: 1096px;
+        height: 552px;
+        background: url("../../images/wall_tile.jpg"); }
+        body .main_holder .wall_holder .wall .wall_section .flower {
+          position: absolute; }
   body .main_holder .nav {
     position: absolute;
     top: 300px;
