@@ -8681,11 +8681,11 @@ wallHolder = $(".wall_holder"),
 wall = $(".wall");
 
 // Draggable example
-var gridWidth = 250;
+var gridWidth = 100;
 var gridHeight = 175;
 Draggable.create(".wall", {
-    type:"x,y",
-    edgeResistance:0.65,
+    type:"x",
+    edgeResistance:1,
     bounds:".wall_holder",
     throwProps:true,
     snap: {
