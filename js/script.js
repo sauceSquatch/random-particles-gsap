@@ -8787,11 +8787,13 @@ viewerClicked = function() {
 }
 
 wallClicked = function(evt) {
-  // console.log(evt)
-  if(evt.target.id.startsWith('flower')) {
+  if(Draggable.timeSinceDrag() <= 0.01) {
+    console.log(Draggable.timeSinceDrag())
+    console.log("WE BE DRAGGINS");
+  } else if(evt.target.id.startsWith('flower')) {
     // console.log(evt.target.id.substr(6));
     openModal(evt.target.id.substr(6));
-    evt.stopImmediatePropagation();
+    // evt.stopImmediatePropagation();
   }
 }
 
